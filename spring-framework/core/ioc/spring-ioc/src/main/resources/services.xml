@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- importing the daos from another file -->
+	<import resource="daos.xml" />
+
+	<bean name="classServiceImpl" class="com.mycompany.spring.spring_framework.ioc.service.ClassServiceImpl">
+		<constructor-arg ref="classDaoImpl"/>
+	</bean>
+	
+	<bean name="lecturerServiceImpl" class="com.mycompany.spring.spring_framework.ioc.service.LecturerServiceImpl">
+		<constructor-arg ref="lecturerDaoImpl"/>
+	</bean>
+	
+	<bean name="studentServiceImpl" class="com.mycompany.spring.spring_framework.ioc.service.StudentServiceImpl">
+		<constructor-arg ref="studentDaoImpl"/>
+	</bean>
+
+</beans>
