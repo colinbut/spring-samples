@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<bean name="foo" class="com.mycompany.spring.spring_framework.core.beans.Foo">
+		<property name="name" value="Foo"/>
+	</bean>
+	
+	<!-- instantiating static inner class -->
+	<bean name="bar" class="com.mycompany.spring.spring_framework.core.beans.Foo$Bar">
+		<property name="name" value="Bar"/>
+	</bean>
+	
+	<!-- can also refer to the bean by following names -->
+	<alias name="foo" alias="foobar" />
+	<alias name="foo" alias="foobarb" />
+	
+	<!-- instantiating with a constructor -->
+	<bean id="book" class="com.mycompany.spring.spring_framework.core.beans.Book">
+	</bean>
+	<bean name="movie" class="com.mycompany.spring.spring_framework.core.beans.Book">
+	</bean>
+	
+	<!-- instantiating with a static factory method -->
+	<bean id="shoppingCart" class="com.mycompany.spring.spring_framework.core.beans.ShoppingCart" 
+				factory-method="createInstance" />
+	
+	<!-- instantiating with an instance factory method -->
+	<bean id="cdCreator" class="com.mycompany.spring.spring_framework.core.beans.CDCreator"></bean>
+	
+	<bean id="cd" factory-bean="cdCreator" factory-method="createCD" />
+	
+</beans>
