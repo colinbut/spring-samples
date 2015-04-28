@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		c-namespace 
+	-->
+	
+	<bean name="rihanna" class="com.mycompany.spring.spring_framework.core.dependencies.model.MusicArtist" 
+		c:name="Rihanna"
+		c:age="23"
+		c:yearBecameActive="2007" />
+		
+	<bean name="ladyGaga" class="com.mycompany.spring.spring_framework.core.dependencies.model.MusicArtist"
+		c:name="Lady Gaga"
+		c:age="28"
+		c:yearBecameActive="2007" />
+		
+	<bean class="com.mycompany.spring.spring_framework.core.dependencies.model.MusicCD"
+		c:artist-ref="rihanna"
+		c:numberOfTracks="18"
+		c:album="Good Girl Gone Bad" 
+		c:tracks="Question Existing, Rehab"/>
+		
+	<bean class="com.mycompany.spring.spring_framework.core.dependencies.model.MusicCD"
+		c:_0-ref="ladyGaga"
+		c:_1="20"
+		c:_2="Monsters"
+		c:_3="Telephone, Poker Face, Bad Romance, Just Dance, Judas" />
+	
+	
+</beans>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-lazy-init="true">
+
+	<bean id="georgeClooney" class="com.mycompany.spring.spring_framework.core.dependencies.model.Actor">
+		<constructor-arg index="0" value="George Clooney" />
+		<constructor-arg index="1" value="55" />
+	</bean> 
+	
+	<bean id="bradPitt" class="com.mycompany.spring.spring_framework.core.dependencies.model.Actor">
+		<constructor-arg name="name" value="Brad Pitt" />
+		<constructor-arg name="age" value="50" />
+	</bean>
+
+	<bean id="producerJerryWeintrab" class="com.mycompany.spring.spring_framework.core.dependencies.model.Producer">
+	</bean>
+
+	<bean id="directorStevenSoderbergh" class="com.mycompany.spring.spring_framework.core.dependencies.model.Director">
+	</bean>
+
+	<bean id="ocean11Movie" class="com.mycompany.spring.spring_framework.core.dependencies.model.Movie">
+		<constructor-arg type="java.lang.String" value="Ocean's Eleven" />
+		<constructor-arg type="int" value="2001" />
+		<constructor-arg>
+			<list>
+				<ref bean="georgeClooney" />
+				<ref bean="bradPitt" />
+			</list>
+		</constructor-arg>
+		<constructor-arg ref="producerJerryWeintrab" />
+		<constructor-arg ref="directorStevenSoderbergh" />
+	</bean>
+
+</beans>

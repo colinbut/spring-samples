@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- p-namespace -->
+	
+	<bean name="criterionGames" class="com.mycompany.spring.spring_framework.core.dependencies.model.VideoGameDeveloper"
+		p:name="Criterion Games" />
+	
+	<bean name="fifa2015" class="com.mycompany.spring.spring_framework.core.dependencies.model.VideoGame"
+		p:name="FIFA 2015"
+		p:numberOfPlayers="4"
+		p:releaseYear="2015"
+		p:publisher="EA Games"
+		p:videoGameDeveloper-ref="criterionGames" />
+		
+	
+
+</beans>

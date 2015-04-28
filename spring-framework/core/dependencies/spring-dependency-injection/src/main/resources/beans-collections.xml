@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="book" class="com.mycompany.spring.spring_framework.core.dependencies.model.Book">
+		<property name="authors">
+			<list>
+				<value>Author1</value>
+			</list>
+		</property>
+		<property name="editions">
+			<map>
+				<entry key="1" value="2003" />
+				<entry key="2" value="2007" />
+			</map>
+		</property>
+		<property name="publishers">
+			<set>
+				<value>Publisher1</value>
+			</set>
+		</property>
+	</bean>
+	
+
+</beans>

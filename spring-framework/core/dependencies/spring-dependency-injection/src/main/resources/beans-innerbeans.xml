@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 
+		Inner Beans 
+	-->
+	
+	<bean id="xmenMovie" class="com.mycompany.spring.spring_framework.core.dependencies.model.Movie">
+		<constructor-arg type="java.lang.String" value="Xmen: The Days of future past" />
+		<constructor-arg type="int" value="2014" />
+		<constructor-arg>
+			<list>
+				<bean class="com.mycompany.spring.spring_framework.core.dependencies.model.Actor">
+					<constructor-arg name="name" value="Hugh Jackman" />
+					<constructor-arg name="age" value="45" />
+				</bean>
+				<bean class="com.mycompany.spring.spring_framework.core.dependencies.model.Actor">
+					<constructor-arg name="name" value="Halle Berry" />
+					<constructor-arg name="age" value="49" />
+				</bean>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="com.mycompany.spring.spring_framework.core.dependencies.model.Producer" />
+		</constructor-arg>
+		<constructor-arg>
+			<bean class="com.mycompany.spring.spring_framework.core.dependencies.model.Director" />
+		</constructor-arg>
+	</bean>
+
+</beans>

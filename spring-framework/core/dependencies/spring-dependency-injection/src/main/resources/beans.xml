@@ -3,5 +3,101 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!-- 
+		Constructor Dependency Injection 
+	-->
+
+	<bean id="christianBale" class="com.mycompany.spring.spring_framework.core.dependencies.model.Actor">
+		<constructor-arg index="0" value="Christian Bale" />
+		<constructor-arg index="1" value="30" />
+	</bean> 
+	
+	<bean id="tomHardy" class="com.mycompany.spring.spring_framework.core.dependencies.model.Actor">
+		<constructor-arg name="name" value="Tom Hardy" />
+		<constructor-arg name="age" value="40" />
+	</bean>
+
+	<bean id="producer1" class="com.mycompany.spring.spring_framework.core.dependencies.model.Producer">
+	</bean>
+
+	<bean id="director1" class="com.mycompany.spring.spring_framework.core.dependencies.model.Director">
+	</bean>
+
+	<bean id="batmanMovie" class="com.mycompany.spring.spring_framework.core.dependencies.model.Movie">
+		<constructor-arg type="java.lang.String" value="Batman: The Dark Knight Rises" />
+		<constructor-arg type="int" value="2012" />
+		<constructor-arg>
+			<list>
+				<ref bean="christianBale" />
+				<ref bean="tomHardy" />
+			</list>
+		</constructor-arg>
+		<constructor-arg ref="producer1" />
+		<constructor-arg ref="director1" />
+	</bean>
+	
+
+	<bean id="movieDatabase" class="com.mycompany.spring.spring_framework.core.dependencies.storage.MovieDatabase">
+	</bean>
+
+	<!-- Constructor Dependency Injection -->
+	<bean id="movieDao" class="com.mycompany.spring.spring_framework.core.dependencies.dao.MovieDaoImpl">
+		<constructor-arg ref="movieDatabase"/>
+	</bean>
+
+	<!-- 
+		Setter Dependency Injection 
+	-->
+	
+	<bean id="movieService" class="com.mycompany.spring.spring_framework.core.dependencies.service.MovieServiceImpl"
+		depends-on="movieDao"> <!-- Depends On -->
+		<property name="movieDao">
+			<ref bean="movieDao"/>
+		</property>
+	</bean>
+	
+	<bean id="movieFinder" class="com.mycompany.spring.spring_framework.core.dependencies.MovieFinder"
+		lazy-init="true">
+		<property name="movieService" ref="movieService" />
+		<!-- also equivalent -->
+		<!-- <property name="movieService" value="movieService" /> -->
+	</bean>
+	
+	<!-- Static Factory Method -->
+	
+	<bean id="movieLister" class="com.mycompany.spring.spring_framework.core.dependencies.MovieLister"
+				factory-method="createInstance">
+			<constructor-arg ref="movieFinder" />
+	</bean>
+	
+	<!-- idref -->
+	<bean id="movieRentalShop" class="com.mycompany.spring.spring_framework.core.dependencies.MovieRentalShop">
+		<property name="movieLister">
+			<idref bean="movieLister"/>
+		</property>
+	</bean>
+	
+	<!-- null/empty strings -->
+	
+	<bean id="jamesMcAvoyActor" class="com.mycompany.spring.spring_framework.core.dependencies.model.Actor">
+		<constructor-arg name="name" value="James McAvoy" />
+		<constructor-arg name="age" value="35" />
+		<property name="email" value="" />
+	</bean>
+	
+	<bean id="michaelFassbenderActor" class="com.mycompany.spring.spring_framework.core.dependencies.model.Actor">
+		<constructor-arg name="name" value="Michael Fassbender" />
+		<constructor-arg name="age" value="36" />
+		<property name="email">
+			<null/>
+		</property>
+	</bean>
+	
+	<!-- compound property names -->
+	
+	<bean id="bryanSingerProducer" class="com.mycompany.spring.spring_framework.core.dependencies.model.Producer"> 
+		<property name="productionCompany.companyName" value="20th Century Fox" />
+	</bean>
+	
 
 </beans>

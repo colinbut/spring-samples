@@ -3,9 +3,6 @@
  */
 package com.mycompany.spring.spring_framework.core.dependencies;
 
-import org.springframework.beans.factory.annotation.Required;
-
-import com.mycompany.spring.spring_framework.core.dependencies.model.Movie;
 import com.mycompany.spring.spring_framework.core.dependencies.service.MovieService;
 
 /**
