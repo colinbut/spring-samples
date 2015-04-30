@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:annotation-config />
+
+	<!-- Qualifiers -->
+	<bean class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.BookCatalog">
+		<qualifier value="main" />
+	</bean>
+	
+	<!-- Qualifiers: Custom  -->
+	<bean class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.MovieCatalog">
+		<qualifier type="Genre" value="Action"/>
+	</bean>
+
+	<bean class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.MovieCatalog">
+		<qualifier type="com.mycompany.spring.spring_framework.core.configuration.annotations.annotations.Genre" value="Comedy"/>
+	</bean>
+	
+	<!--  Qualifier: no value -->
+	<bean class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.MovieCatalog">
+		<qualifier type="Offline" />
+	</bean>
+	
+	<!-- Qualifiers: Named attributes -->
+	<bean class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.MovieCatalog">
+		<qualifier type="MovieQualifier">
+			<attribute key="format" value="VHS" />
+			<attribute key="genre" value="Action" />
+		</qualifier>
+	</bean>	
+	
+	<bean class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.MovieCatalog">
+		<qualifier type="MovieQualifier">
+			<attribute key="format" value="VHS" />
+			<attribute key="genre" value="Comedy" />
+		</qualifier>
+	</bean>	
+	
+	<!-- using meta instead attribute -->
+	<bean class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.MovieCatalog">
+		<meta key="format" value="DVD"/>
+		<meta key="genre" value="Action"/>
+	</bean>	
+	
+	<bean class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.MovieCatalog">
+		<meta key="format" value="BLURAY"/>
+		<meta key="genre" value="Comedy"/>
+	</bean>	
+	
+	
+
+</beans>

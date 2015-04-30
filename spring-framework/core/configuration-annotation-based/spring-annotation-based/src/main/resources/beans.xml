@@ -10,10 +10,16 @@
 	<!-- enabling annotation config -->
 	<context:annotation-config />
 	
+	<!-- Movies -->
+	
 	<bean id="movieFinder" class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.MovieFinder">
 	</bean>
 
 	<bean id="simpleMovieLister" class="com.mycompany.spring.spring_framework.core.configuration.annotations.model.SimpleMovieLister">
 	</bean>
 
+
+	<!-- Books -->
+
+	
 </beans>
