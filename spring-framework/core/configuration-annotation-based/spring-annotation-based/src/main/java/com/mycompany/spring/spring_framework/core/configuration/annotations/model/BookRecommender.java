@@ -4,6 +4,7 @@
 package com.mycompany.spring.spring_framework.core.configuration.annotations.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 
 import com.mycompany.spring.spring_framework.core.configuration.annotations.dao.BookDao;
@@ -17,6 +18,7 @@ public class BookRecommender {
 	// Autowiring on Fields
 	
 	@Autowired
+	@Qualifier("main")
 	private BookCatalog bookCatalog;
 	
 	@Autowired
