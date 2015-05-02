@@ -3,9 +3,6 @@
  */
 package com.mycompany.spring.spring_framework.core.configuration.annotations;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,7 +24,6 @@ public class MyConfiguration {
 	}
 	
 	
-	@Autowired
-	private List<Store<Integer>> integerStoresList;
+	
 	
 }
