@@ -4,6 +4,8 @@
 package com.mycompany.spring.spring_framework.core.dependencies.model;
 
 /**
+ * A developer who develops video games
+ * 
  * @author colin
  *
  */

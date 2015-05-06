@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * An Actor
+ * 
  * @author colin
  *
  */

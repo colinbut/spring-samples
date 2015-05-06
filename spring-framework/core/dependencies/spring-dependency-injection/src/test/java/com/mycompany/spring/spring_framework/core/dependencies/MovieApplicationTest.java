@@ -14,6 +14,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MovieApplicationTest {
 
+	/**
+	 * Test the beans setup of dependency injection
+	 * Ensuring that it is working...
+	 */
 	@Test
 	public void testBeansSetup(){
 		

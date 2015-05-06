@@ -13,5 +13,5 @@ package com.mycompany.spring.spring_framework.core.dependencies.storage;
  *
  */
 public class MovieDatabase {
-
+	// No Implementation
 }

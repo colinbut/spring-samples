@@ -4,6 +4,8 @@
 package com.mycompany.spring.spring_framework.core.dependencies;
 
 /**
+ * A movie rental shop where it lends movies for rent
+ * 
  * @author colin
  *
  */

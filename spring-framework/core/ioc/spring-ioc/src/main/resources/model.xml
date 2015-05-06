@@ -17,10 +17,6 @@
 		<property name="name" value="Software Architecture"/>
 	</bean>
 	
-	
 	<bean id="webApp" class="com.mycompany.spring.spring_framework.ioc.model.Class"/>
-	
-	
-	
 	
 </beans>

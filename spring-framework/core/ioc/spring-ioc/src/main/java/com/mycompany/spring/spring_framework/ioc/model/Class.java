@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Class
+ * 
  * @author colin
  *
  */
@@ -18,38 +20,45 @@ public class Class {
 	
 	private List<Lecturer> lecturers;
 
+	/**
+	 * Constructor
+	 */
 	public Class(){
 		students = new ArrayList<Student>();
 		lecturers = new ArrayList<Lecturer>();
 	}
 	
 	/**
+	 * Gets number of students that belongs to this class
 	 * 
-	 * @return
+	 * @return no. of students
 	 */
 	public int getNumberOfStudents(){
 		return students.size();
 	}
 	
 	/**
+	 * Get the lecturers who lectures this class
 	 * 
-	 * @return
+	 * @return the lecturers
 	 */
 	public List<Lecturer> getLecturers(){
 		return lecturers;
 	}
 	
 	/**
+	 * Enrols a student onto this class
 	 * 
-	 * @param student
+	 * @param student the Student to enrol
 	 */
 	public void enrolStudent(Student student){
 		students.add(student);
 	}
 	
 	/**
+	 * Gets the students of this class
 	 * 
-	 * @return
+	 * @return list of students in class
 	 */
 	public List<Student> getStudents(){
 		return students;
@@ -57,13 +66,17 @@ public class Class {
 	
 	
 	/**
-	 * @return the name
+	 * Gets the class
+	 * 
+	 * @return the name 
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
+	 * Sets the class name
+	 * 
 	 * @param name the name to set
 	 */
 	public void setName(String name) {

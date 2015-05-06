@@ -11,6 +11,8 @@ import java.lang.annotation.Target;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
+ * Annotation to say this resource is available offline
+ * 
  * @author colin
  *
  */
@@ -18,5 +20,5 @@ import org.springframework.beans.factory.annotation.Qualifier;
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
 public @interface Offline {
-
+	// nothing
 }

@@ -16,7 +16,7 @@ public interface LecturerService {
 	/**
 	 * Gets the Lecturer data
 	 * 
-	 * @return
+	 * @return lecturer
 	 */
 	Lecturer getLecturer();
 }

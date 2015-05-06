@@ -9,6 +9,7 @@ import com.mycompany.spring.spring_framework.ioc.model.Class;
 
 /**
  * Data Access Object for Class
+ * 
  * @author colin
  *
  */

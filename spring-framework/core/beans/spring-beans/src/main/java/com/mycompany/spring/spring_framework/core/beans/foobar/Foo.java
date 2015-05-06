@@ -1,9 +1,8 @@
-/**
- * 
- */
-package com.mycompany.spring.spring_framework.core.beans;
+package com.mycompany.spring.spring_framework.core.beans.foobar;
 
 /**
+ * Foo
+ * 
  * @author colin
  *
  */
@@ -26,6 +25,7 @@ public class Foo {
 	}
 	
 	/**
+	 * Bar
 	 * 
 	 * @author colin
 	 *

@@ -13,7 +13,6 @@ public class MovieFinder {
 
 	private MovieService movieService;
 	
-	
 	/**
 	 * Gets the movie database
 	 * 

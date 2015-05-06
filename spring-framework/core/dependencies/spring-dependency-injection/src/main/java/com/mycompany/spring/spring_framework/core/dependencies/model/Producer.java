@@ -4,6 +4,8 @@
 package com.mycompany.spring.spring_framework.core.dependencies.model;
 
 /**
+ * A movie producer who produces movies
+ * 
  * @author colin
  *
  */

@@ -19,6 +19,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class MovieFinderTest {
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testMovieFinderSetup(){
 		

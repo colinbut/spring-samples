@@ -24,7 +24,6 @@ public class StudentDaoImpl implements StudentDao {
 	@Override
 	public Student getStudent() throws SQLException {
 		
-		// TODO: make db connection to get data
 		Student student = new Student();
 		student.setStudentId(1);
 		student.setName("Student Name");

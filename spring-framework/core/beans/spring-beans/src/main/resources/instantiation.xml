@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- instantiating with a constructor -->
+	<bean id="book" class="com.mycompany.spring.spring_framework.core.beans.onlinestore.model.Book">
+	</bean>
+	<bean name="movie" class="com.mycompany.spring.spring_framework.core.beans.onlinestore.model.Book">
+	</bean>
+	
+	<!-- instantiating with a static factory method -->
+	<bean id="shoppingCart" class="com.mycompany.spring.spring_framework.core.beans.onlinestore.ShoppingCart" 
+				factory-method="createInstance" />
+	
+	<!-- instantiating with an instance factory method -->
+	<bean id="cdCreator" class="com.mycompany.spring.spring_framework.core.beans.onlinestore.model.CDCreator"></bean>
+	
+	<bean id="cd" factory-bean="cdCreator" factory-method="createCD" />
+	
+</beans>

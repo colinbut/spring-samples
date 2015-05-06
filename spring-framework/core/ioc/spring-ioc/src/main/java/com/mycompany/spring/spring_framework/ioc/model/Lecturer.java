@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Lecturer
+ * 
  * @author colin
  *
  */
@@ -18,21 +20,25 @@ public class Lecturer extends Person {
 		teachingClasses = new ArrayList<>();
 	}
 
-	/**
-	 * @return the name
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.spring.spring_framework.ioc.model.Person#getName()
 	 */
 	public String getName() {
 		return super.getName();
 	}
 
-	/**
-	 * @param name the name to set
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.spring.spring_framework.ioc.model.Person#setName(java.lang.String)
 	 */
 	public void setName(String name) {
 		super.setName(name);
 	}
 	
 	/**
+	 * Adds the <newClass> to this lecturer's list of teaching classes
+	 * 
 	 * @param newClass 
 	 */
 	public void teachClass(Class newClass){
@@ -40,6 +46,8 @@ public class Lecturer extends Person {
 	}
 
 	/**
+	 * Gets all the classes this lecturer teaches
+	 * 
 	 * @return the teachingClasses
 	 */
 	public List<Class> getTeachingClasses() {

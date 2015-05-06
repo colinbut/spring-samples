@@ -6,6 +6,8 @@ package com.mycompany.spring.spring_framework.ioc.model;
 import java.util.Date;
 
 /**
+ * A student
+ * 
  * @author colin
  *
  */
@@ -13,11 +15,18 @@ public class Student extends Person{
 
 	private int studentId;
 	
-	
-	
 	private Date dateOfBirth;
 
 	/**
+	 * Constructor
+	 */
+	public Student(){
+		//
+	}
+	
+	/**
+	 * Gets the studentId of this student
+	 * 
 	 * @return the studentId
 	 */
 	public int getStudentId() {
@@ -25,27 +34,33 @@ public class Student extends Person{
 	}
 
 	/**
+	 * Sets the studentId of this student
+	 * 
 	 * @param studentId the studentId to set
 	 */
 	public void setStudentId(int studentId) {
 		this.studentId = studentId;
 	}
 
-	/**
-	 * @return the name
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.spring.spring_framework.ioc.model.Person#getName()
 	 */
 	public String getName() {
 		return super.getName();
 	}
 
-	/**
-	 * @param name the name to set
+	/*
+	 * (non-Javadoc)
+	 * @see com.mycompany.spring.spring_framework.ioc.model.Person#setName(java.lang.String)
 	 */
 	public void setName(String name) {
 		super.setName(name);
 	}
 
 	/**
+	 * Gets the DOB of this student
+	 * 
 	 * @return the dateOfBirth
 	 */
 	public Date getDateOfBirth() {
@@ -53,6 +68,8 @@ public class Student extends Person{
 	}
 
 	/**
+	 * Sets the DOB of this student
+	 * 
 	 * @param dateOfBirth the dateOfBirth to set
 	 */
 	public void setDateOfBirth(Date dateOfBirth) {

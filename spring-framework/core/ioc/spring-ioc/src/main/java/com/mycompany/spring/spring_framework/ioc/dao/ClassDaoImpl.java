@@ -24,8 +24,6 @@ public class ClassDaoImpl implements ClassDao{
 		
 		Class uniClass = new Class();
 		uniClass.setName("Class");
-		
-		
 		return uniClass;
 	}
 

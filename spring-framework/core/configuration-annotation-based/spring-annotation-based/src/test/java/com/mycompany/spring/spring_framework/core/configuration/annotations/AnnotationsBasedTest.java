@@ -15,6 +15,9 @@ import com.mycompany.spring.spring_framework.core.configuration.annotations.mode
  */
 public class AnnotationsBasedTest {
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testAnnotationsBasedConfiguration(){
 		

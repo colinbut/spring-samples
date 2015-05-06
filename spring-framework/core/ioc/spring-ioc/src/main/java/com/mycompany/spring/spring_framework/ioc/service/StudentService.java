@@ -14,8 +14,9 @@ import com.mycompany.spring.spring_framework.ioc.model.Student;
 public interface StudentService {
 
 	/**
-	 * Gets the student 
-	 * @return
+	 * Gets the student
+	 *  
+	 * @return student
 	 */
 	Student getStudent();
 	

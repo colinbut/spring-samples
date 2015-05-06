@@ -16,7 +16,7 @@ public interface ClassService {
 	/**
 	 * Gets the Class data
 	 * 
-	 * @return
+	 * @return class
 	 */
 	Class getClassDetails();
 }

@@ -21,24 +21,10 @@ import com.mycompany.spring.spring_framework.ioc.service.*;
  */
 public class ApplicationTest {
 
-	@Test
-	public void testLoadingBeansConfiguration() {
-		
-		// sets up the application context
-		ApplicationContext context = new ClassPathXmlApplicationContext("/beans.xml");
-		
-		// get the bean from the ioc
-		HelloWorld helloWorld = (HelloWorld)context.getBean("helloworld", HelloWorld.class);
-		//HelloWorld helloWorld = (HelloWorld)context.getBean("helloworld");
-		
-		// use the bean
-		assertEquals("HelloWorld", helloWorld.getHelloWorldMessage());
-		
-		// closes the application context
-		((ConfigurableApplicationContext)context).close();
-		
-	}
 	
+	/**
+	 * Test loading ONE bean from a config file
+	 */
 	@Test
 	public void testLoadingOneBeansConfigurationFile(){
 		
@@ -52,21 +38,28 @@ public class ApplicationTest {
 		
 	}
 	
+	/**
+	 * Test loading of multiple beans from a config file
+	 */
 	@Test
 	public void testLoadingMultipleBeansConfigurationFiles(){
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 												new String[] {"beans.xml", "model.xml", "daos.xml"});
 		
-		HelloWorld helloWorld = (HelloWorld)context.getBean("helloworld", HelloWorld.class);
 		Student student = (Student)context.getBean("student", Student.class);
 		Lecturer lecturer = (Lecturer)context.getBean("lecturer", Lecturer.class);
 		
 		assertEquals("Student Name", student.getName());
+		assertEquals("Lecturer Name", lecturer.getName());
 		
+		((ConfigurableApplicationContext)context).close();
 		
 	}
 	
+	/**
+	 * Test loading of the application-context.xml bean config file
+	 */
 	@Test
 	public void testLoadingApplicationContextConfiguration(){
 		

@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import com.mycompany.spring.spring_framework.core.configuration.annotations.model.Format;
 
 /**
+ * Annotation for specifying the movie Genre and (Media) Format
+ * 
  * @author colin
  *
  */

@@ -22,7 +22,6 @@ public class LecturerDaoImpl implements LecturerDao {
 		
 		Lecturer lecturer = new Lecturer();
 		lecturer.setName("Lecturer Name");
-		
 		return lecturer;
 	}
 

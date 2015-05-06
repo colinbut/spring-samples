@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * A Book
+ * 
  * @author colin
  *
  */
@@ -24,42 +26,49 @@ public class Book {
 	public String getTitle() {
 		return title;
 	}
+	
 	/**
 	 * @param title the title to set
 	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 	/**
 	 * @return the authors
 	 */
 	public List<String> getAuthors() {
 		return authors;
 	}
+	
 	/**
 	 * @param authors the authors to set
 	 */
 	public void setAuthors(List<String> authors) {
 		this.authors = authors;
 	}
+	
 	/**
 	 * @return the editions
 	 */
 	public Map<Integer, Integer> getEditions() {
 		return editions;
 	}
+	
 	/**
 	 * @param editions the editions to set
 	 */
 	public void setEditions(Map<Integer, Integer> editions) {
 		this.editions = editions;
 	}
+	
 	/**
 	 * @return the publishers
 	 */
 	public Set<String> getPublishers() {
 		return publishers;
 	}
+	
 	/**
 	 * @param publishers the publishers to set
 	 */

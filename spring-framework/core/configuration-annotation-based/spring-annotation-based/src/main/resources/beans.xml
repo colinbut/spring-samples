@@ -9,6 +9,9 @@
 
 	<!-- enabling annotation config -->
 	<context:annotation-config />
+	<!-- 
+		No need to define dependencies in XML - use of @Autowired et al. annotations instead
+	 -->
 	
 	<!-- Movies -->
 	
