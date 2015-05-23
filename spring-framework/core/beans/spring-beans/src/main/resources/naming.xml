@@ -3,17 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean name="foo" class="com.mycompany.spring.spring_framework.core.beans.foobar.Foo">
-		<property name="name" value="Foo"/>
+	<bean name="adminUser" class="com.mycompany.spring.spring_framework.core.beans.admin.AdminUser">
+		<property name="name" value="Admin"/>
 	</bean>
 	
 	<!-- instantiating static inner class -->
-	<bean name="bar" class="com.mycompany.spring.spring_framework.core.beans.foobar.Foo$Bar">
-		<property name="name" value="Bar"/>
+	<bean name="adminUserBuilder" class="com.mycompany.spring.spring_framework.core.beans.admin.AdminUser$AdminUserBuilder">
+		<property name="name" value="Admin"/>
 	</bean>
 	
 	<!-- can also refer to the bean by following names -->
-	<alias name="foo" alias="foobar" />
-	<alias name="foo" alias="foobarb" />
+	<alias name="adminUser" alias="root" />
+	<alias name="adminUser" alias="superAdminUser" />
 
 </beans>

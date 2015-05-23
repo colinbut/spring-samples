@@ -3,8 +3,6 @@
  */
 package com.mycompany.spring.spring_framework.core.beans;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -13,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.mycompany.spring.spring_framework.core.beans.foobar.Foo;
+import com.mycompany.spring.spring_framework.core.beans.admin.AdminUser;
 import com.mycompany.spring.spring_framework.core.beans.onlinestore.ShoppingCart;
 import com.mycompany.spring.spring_framework.core.beans.onlinestore.model.Book;
 import com.mycompany.spring.spring_framework.core.beans.onlinestore.model.CD;
@@ -24,27 +22,18 @@ import com.mycompany.spring.spring_framework.core.beans.onlinestore.model.CD;
  */
 public class ApplicationTest {
 
-	ApplicationContext context;
-	
-	@Before
-	public void setUp(){
-		context = new ClassPathXmlApplicationContext("beans.xml");
-	}
-	
-	@After
-	public void tearDown(){
-		((ConfigurableApplicationContext)context).close();
-	}
-	
+		
 	// --------- Naming ----------------------------------
 	 
 	/**
-	 * 
+	 * Tests the naming the beans (aliases etc...)
 	 */
 	@Test
 	public void testBeansNaming(){
-		Foo foo = (Foo) context.getBean("foobar");
-		assertEquals("Foo", foo.getName());
+		ApplicationContext context = new ClassPathXmlApplicationContext("naming.xml");
+		AdminUser foo = (AdminUser) context.getBean("adminUser");
+		assertEquals("Admin", foo.getName());
+		((ConfigurableApplicationContext)context).close();
 	}
 	
 	// --------- Instantiation ----------------------------
@@ -54,8 +43,10 @@ public class ApplicationTest {
 	 */
 	@Test
 	public void testBeansInstantiatingWithAConstructor(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("instantiation.xml");
 		Book book = context.getBean("book", Book.class);
 		assertTrue(book instanceof Book);
+		((ConfigurableApplicationContext)context).close();
 	}
 	
 	/**
@@ -63,8 +54,10 @@ public class ApplicationTest {
 	 */
 	@Test
 	public void testBeansInstantiatingWithAStaticFactoryMethod(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("instantiation.xml");
 		ShoppingCart shoppingCart = context.getBean("shoppingCart", ShoppingCart.class);
 		assertTrue(shoppingCart instanceof ShoppingCart);
+		((ConfigurableApplicationContext)context).close();
 	}
 	
 	/**
@@ -72,7 +65,9 @@ public class ApplicationTest {
 	 */
 	@Test
 	public void testBeansInstantiatingWithAInstanceFactoryMethod(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("instantiation.xml");
 		CD cd = context.getBean("cd", CD.class);
 		assertTrue(cd instanceof CD);
+		((ConfigurableApplicationContext)context).close();
 	}
 }

@@ -1,12 +1,12 @@
-package com.mycompany.spring.spring_framework.core.beans.foobar;
+package com.mycompany.spring.spring_framework.core.beans.admin;
 
 /**
- * Foo
+ * AdminUser
  * 
  * @author colin
  *
  */
-public class Foo {
+public class AdminUser {
 
 	private String name;
 	
@@ -25,12 +25,12 @@ public class Foo {
 	}
 	
 	/**
-	 * Bar
+	 * AdminUserBuilder
 	 * 
 	 * @author colin
 	 *
 	 */
-	static class Bar{
+	static class AdminUserBuilder{
 		
 		private String name;
 
@@ -46,6 +46,10 @@ public class Foo {
 		 */
 		public void setName(String name) {
 			this.name = name;
+		}
+		
+		public AdminUser buildAdminUser(){
+			return new AdminUser();
 		}
 		
 	}
