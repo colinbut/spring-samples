@@ -18,7 +18,11 @@ public class MovieRecommender {
 	@Autowired
 	private MovieCatalog movieCatalog;
 	
-	
+	/**
+	 * Recommends a random movie
+	 * 
+	 * @return
+	 */
 	public Movie recommendMovie(){
 		
 		Movie movie = null;

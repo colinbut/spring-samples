@@ -15,10 +15,16 @@ public class MovieCatalog {
 
 	private Movie[] movies;
 	
+	/**
+	 * Constructor
+	 */
 	public MovieCatalog(){
 		init();
 	}
 	
+	/**
+	 * Initialisation
+	 */
 	public void init(){
 		movies = new Movie[]{
 				new Movie("Batman", 1990),
@@ -26,6 +32,11 @@ public class MovieCatalog {
 		};
 	}
 	
+	/**
+	 * Get a list of movies
+	 * 
+	 * @return
+	 */
 	public Movie[] getMovies(){
 		return movies;
 	}

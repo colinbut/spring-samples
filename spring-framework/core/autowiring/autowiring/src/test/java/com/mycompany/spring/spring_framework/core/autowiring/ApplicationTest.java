@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -15,6 +16,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 public class ApplicationTest {
 
+	/**
+	 * Test the autowiring of beans
+	 */
 	@Test
 	public void testAutowiringGetBean(){
 		
@@ -30,5 +34,6 @@ public class ApplicationTest {
 		
 		System.out.println(movie.toString());
 		
+		((ConfigurableApplicationContext)context).close();
 	}
 }
