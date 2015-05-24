@@ -23,7 +23,4 @@ public class MyConfiguration {
 		return new IntegerStore();
 	}
 	
-	
-	
-	
 }

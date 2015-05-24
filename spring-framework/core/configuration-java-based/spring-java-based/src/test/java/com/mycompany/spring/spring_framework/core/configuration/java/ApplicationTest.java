@@ -21,9 +21,10 @@ import com.mycompany.spring.spring_framework.core.configuration.java.service.Tra
  *
  */
 public class ApplicationTest {
-
 	
-	
+	/**
+	 * Test getting bean in AppConfig
+	 */
 	@Test
 	public void testGetBeanInAppConfigJavaFile(){
 		
@@ -45,6 +46,9 @@ public class ApplicationTest {
 		((ConfigurableApplicationContext)context).close();
 	}
 	
+	/**
+	 * Test the construction of the AnnotationConfigContext programmatically
+	 */
 	@Test
 	public void testBuildingAnnotationConfigApplicationContextProgrammatically(){
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
@@ -55,6 +59,9 @@ public class ApplicationTest {
 		((ConfigurableApplicationContext)context).close();
 	}
 	
+	/**
+	 * Test component scan within Config based configuration
+	 */
 	@Test
 	public void testAppConfigComponentScanUsingAnnotationApplicationContext(){
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
@@ -68,6 +75,10 @@ public class ApplicationTest {
 		((ConfigurableApplicationContext)context).close();
 	}
 	
+	/**
+	 * Test component scan using AppConfig (same as above but above one does it
+	 * programmatically)
+	 */
 	@Test
 	public void testAppConfigComponentScanUsingAppConfigJavaClass(){
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfigComponentScan.class);
@@ -80,6 +91,9 @@ public class ApplicationTest {
 		((ConfigurableApplicationContext)context).close();
 	}
 	
+	/**
+	 * Test the importing of other AppConfigs into this AppConfig
+	 */
 	@Test
 	public void testImportingOfAppConfigs(){
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfigComponentScan.class);
