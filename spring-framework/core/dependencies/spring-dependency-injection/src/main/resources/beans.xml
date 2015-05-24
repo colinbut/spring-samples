@@ -40,7 +40,6 @@
 	<bean id="movieDatabase" class="com.mycompany.spring.spring_framework.core.dependencies.storage.MovieDatabase">
 	</bean>
 
-	<!-- Constructor Dependency Injection -->
 	<bean id="movieDao" class="com.mycompany.spring.spring_framework.core.dependencies.dao.MovieDaoImpl">
 		<constructor-arg ref="movieDatabase"/>
 	</bean>
@@ -49,13 +48,15 @@
 		Setter Dependency Injection 
 	-->
 	
+	<!-- Depends On -->
 	<bean id="movieService" class="com.mycompany.spring.spring_framework.core.dependencies.service.MovieServiceImpl"
-		depends-on="movieDao"> <!-- Depends On -->
+		depends-on="movieDao"> 
 		<property name="movieDao">
 			<ref bean="movieDao"/>
 		</property>
 	</bean>
 	
+	<!-- Lazy init -->
 	<bean id="movieFinder" class="com.mycompany.spring.spring_framework.core.dependencies.MovieFinder"
 		lazy-init="true">
 		<property name="movieService" ref="movieService" />

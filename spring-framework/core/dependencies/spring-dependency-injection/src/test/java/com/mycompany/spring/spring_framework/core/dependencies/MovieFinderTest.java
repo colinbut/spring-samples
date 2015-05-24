@@ -11,8 +11,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-
-
 /**
  * @author colin
  *
@@ -20,7 +18,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class MovieFinderTest {
 
 	/**
-	 * 
+	 * Test getting movieFinder bean
 	 */
 	@Test
 	public void testMovieFinderSetup(){

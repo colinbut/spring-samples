@@ -21,4 +21,8 @@ public class MovieRentalShop {
 	public void setMovieLister(MovieLister movieLister){
 		this.movieLister = movieLister;
 	}
+	
+	public MovieLister getMovieLister(){
+		return movieLister;
+	}
 }

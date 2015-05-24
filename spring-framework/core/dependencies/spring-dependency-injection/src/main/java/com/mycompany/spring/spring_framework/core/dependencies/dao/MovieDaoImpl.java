@@ -35,7 +35,6 @@ public class MovieDaoImpl implements MovieDao {
 	 */
 	@Override
 	public List<Movie> getMovies() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -45,7 +44,6 @@ public class MovieDaoImpl implements MovieDao {
 	 */
 	@Override
 	public Movie getMovieByTitle() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -55,7 +53,6 @@ public class MovieDaoImpl implements MovieDao {
 	 */
 	@Override
 	public Movie getMovieById() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

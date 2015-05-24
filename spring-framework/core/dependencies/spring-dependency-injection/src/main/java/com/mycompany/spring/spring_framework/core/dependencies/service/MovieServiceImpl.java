@@ -35,8 +35,7 @@ public class MovieServiceImpl implements MovieService {
 	 */
 	@Override
 	public Movie getMovieByTitle() {
-		// TODO Auto-generated method stub
-		return null;
+		return movieDao.getMovieByTitle();
 	}
 
 	/*
@@ -45,8 +44,7 @@ public class MovieServiceImpl implements MovieService {
 	 */
 	@Override
 	public List<Movie> getMovies() {
-		// TODO Auto-generated method stub
-		return null;
+		return movieDao.getMovies();
 	}
 
 	/*
@@ -55,8 +53,7 @@ public class MovieServiceImpl implements MovieService {
 	 */
 	@Override
 	public Movie getMovieById() {
-		// TODO Auto-generated method stub
-		return null;
+		return movieDao.getMovieById();
 	}
 
 }
