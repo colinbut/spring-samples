@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h2>Edit Student Account Information</h2>
-	<form:form method="POST" action="/addStudent">
+	<form:form method="POST" action="/registersStudent">
 		<table>
 			<tr>
 				<td><form:label path="forename">Forename</form:label></td>
@@ -39,11 +39,11 @@
 			</tr>
 			<tr>
 				<td><form:label path="sex">Sex</form:label></td>
-				<td><form:radiobuttons path="sex" items="sexList"/></td>
+				<td><form:radiobuttons path="sex" items="${sexList}"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="marketing">Marketing options</form:label></td>
-				<td><form:checkboxes items="marketingOptions" path="marketing"/></td>
+				<td><form:checkboxes items="${marketingOptions}" path="marketing"/></td>
 			</tr>
 			<tr>
 				<td><form:label path="additionalInfo">Additional Information</form:label></td>

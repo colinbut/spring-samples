@@ -10,8 +10,8 @@
 	<h2>Student Account Information</h2>
 	<table>
 		<tr>
-			<td>Name</td>
-			<td>${name}</td>
+			<td>Surname</td>
+			<td>${surname}</td>
 		</tr>
 		<tr>
 			<td>Age</td>
