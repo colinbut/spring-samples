@@ -4,6 +4,7 @@
 package com.mycompany.spring_framework.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -39,7 +40,12 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 	 */
 	@Override
 	public StudentRegistration getStudentRegistration() {
-		return studentRegistrations.get(0);
+		if(!studentRegistrations.isEmpty()) {
+			return studentRegistrations.get(0);
+		}
+		else {
+			return null;
+		}
 	}
 	
 	

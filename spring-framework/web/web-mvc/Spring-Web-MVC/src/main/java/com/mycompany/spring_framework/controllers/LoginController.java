@@ -19,12 +19,23 @@ import com.mycompany.spring_framework.model.UserLogin;
 @Controller
 public class LoginController {
 
+	/**
+	 * Viewing the Login form page
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public ModelAndView viewLoginPage() {
 		ModelAndView modelAndView = new ModelAndView("login", "command", new UserLogin());
 		return modelAndView;
 	}
 	
+	/**
+	 * When logging in
+	 * 
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/loginUser", method=RequestMethod.POST)
 	public String login(@ModelAttribute("spring-web-mvc") ModelMap model) {
 		

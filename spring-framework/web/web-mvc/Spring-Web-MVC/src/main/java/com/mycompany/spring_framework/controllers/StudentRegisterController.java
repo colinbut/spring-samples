@@ -8,7 +8,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,20 +21,15 @@ import com.mycompany.spring_framework.service.StudentRegistrationService;
  *
  */
 @Controller
-public class StudentEditController {
+public class StudentRegisterController {
 
 	@Autowired
 	private StudentRegistrationService studentRegistrationService;
 	
-	/**
-	 * Loads the StudentEditForm view
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value="/editStudentAccount", method=RequestMethod.GET)
-	public ModelAndView viewEditStudent() {
+	@RequestMapping(value="/viewRegistration", method=RequestMethod.GET)
+	public ModelAndView viewRegistrationPage() {
 		
-		ModelAndView modelAndView = new ModelAndView("studentEdit", "command", new StudentRegistration());
+		ModelAndView modelAndView = new ModelAndView("studentRegister", "command", new StudentRegistration());
 		
 		List<String> titles = new ArrayList<String>();
 		titles.add("Mr");
@@ -59,14 +53,14 @@ public class StudentEditController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/saveEditStudentRegistration", method=RequestMethod.POST)
-	public String editStudent(@ModelAttribute StudentRegistration studentRegistration,
-			ModelMap model) {
+	@RequestMapping(value="/registerStudent", method=RequestMethod.POST)
+	public String submitRegistration(@ModelAttribute StudentRegistration studentRegistration) {
 		
 		if(studentRegistrationService.registerStudent(studentRegistration)) {
 			return "redirect:viewStudent"; // redirect to student details view
 		}
 		
+		// should go back to home page
 		return "studentDetails";
 	}
 }
