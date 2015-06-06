@@ -8,7 +8,7 @@
 <title>Login</title>
 </head>
 <body>
-	<form:form method="POST" action="/loginSubmit">
+	<form:form method="POST" action="loginUser">
 		<table>
 			<tr>
 				<td><form:label path="username">Username</form:label></td>

@@ -6,7 +6,8 @@
          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> 
 
 	<!-- Required for discovery of @Controllers classes -->
-	<context:component-scan base-package="com.mycompany.spring_framework.controllers"/>
+	<!-- scan from  com.mycompany.spring_framework down -->
+	<context:component-scan base-package="com.mycompany.spring_framework"/>
 
 	<mvc:annotation-driven/>
 	
