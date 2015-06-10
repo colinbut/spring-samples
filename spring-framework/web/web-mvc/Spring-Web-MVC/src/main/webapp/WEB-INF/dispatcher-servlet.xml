@@ -29,5 +29,31 @@
 		<!-- Setting maximum upload size -->
 		<property name="maxUploadSize" value="100000"/>
 	</bean>
+	
+	<!-- Locales -->
+	<bean id="sessionLocaleResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="zh_CN" />
+	</bean>
+	
+	<!-- Allows changing of locales -->
+	<bean id="localChangeInterceptor"
+		class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+		<property name="paramName" value="language" />
+	</bean>
+	
+	<!-- properties source -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="messages"/>
+	</bean>
+	
+	<bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+		<property name="interceptors">
+			<list>
+				<ref bean="localChangeInterceptor"/>
+			</list>
+		</property>
+	</bean>
 
 </beans>
