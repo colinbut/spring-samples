@@ -21,5 +21,13 @@
 			<value>.jsp</value>
 		</property>		
 	</bean>
+	
+	<!-- For multipart/ (multi) file upload -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		
+		<!-- Setting maximum upload size -->
+		<property name="maxUploadSize" value="100000"/>
+	</bean>
 
 </beans>
