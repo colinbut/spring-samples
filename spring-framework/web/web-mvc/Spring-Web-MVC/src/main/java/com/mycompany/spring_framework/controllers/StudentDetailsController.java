@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mycompany.spring_framework.model.Semester;
 import com.mycompany.spring_framework.model.Student;
@@ -95,6 +96,20 @@ public class StudentDetailsController {
 		}
 		
 		return "studentDetails";
+	}
+	
+	/**
+	 * Producible Media Types
+	 * 
+	 * @param studentId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/viewStudentsAPI/{studentId}", method=RequestMethod.GET,
+			produces="application/json")
+	@ResponseBody
+	public Student viewStudentDetailsAPI (@PathVariable int studentId, Model model) {
+		return studentService.findStudentByStudentId(studentId);
 	}
 
 }

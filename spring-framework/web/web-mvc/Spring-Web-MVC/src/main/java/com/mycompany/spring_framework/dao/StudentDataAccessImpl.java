@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.spring_framework.model.Student;
@@ -18,10 +20,15 @@ import com.mycompany.spring_framework.model.Student;
 @Repository
 public class StudentDataAccessImpl implements StudentDataAccess {
 
+	private List<Student> students;
+	
+	@PostConstruct
+	private void init(){
+		students = new ArrayList<>();
+	}
+	
 	@Override
 	public List<Student> getStudents() {
-		
-		List<Student> students = new ArrayList<>();
 		
 		for(int i = 1; i <= 25; i++) {
 			Student student = new Student();
@@ -36,6 +43,11 @@ public class StudentDataAccessImpl implements StudentDataAccess {
 		}
 		
 		return students;
+	}
+
+	@Override
+	public boolean addStudent(Student student) {
+		return students.add(student);
 	}
 
 }

@@ -14,4 +14,6 @@ import com.mycompany.spring_framework.model.Student;
 public interface StudentDataAccess {
 
 	List<Student> getStudents();
+	
+	boolean addStudent(Student student);
 }

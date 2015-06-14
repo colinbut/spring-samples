@@ -16,4 +16,6 @@ public interface StudentService {
 	List<Student> getStudents();
 	
 	Student findStudentByStudentId(int studentId);
+	
+	boolean addStudent(Student student);
 }

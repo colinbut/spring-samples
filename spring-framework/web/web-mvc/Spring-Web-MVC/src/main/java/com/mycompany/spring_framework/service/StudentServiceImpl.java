@@ -54,4 +54,9 @@ public class StudentServiceImpl implements StudentService {
 		return null;
 	}
 
+	@Override
+	public boolean addStudent(Student student) {
+		return studentDataAccess.addStudent(student);
+	}
+
 }
