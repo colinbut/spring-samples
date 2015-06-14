@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mycompany.spring_framework.model.StudentRegistration;
-import com.mycompany.spring_framework.service.StudentRegistrationService;
 
 /**
  * @author colin
@@ -24,8 +23,6 @@ import com.mycompany.spring_framework.service.StudentRegistrationService;
 @Controller
 public class StudentEditController {
 
-	@Autowired
-	private StudentRegistrationService studentRegistrationService;
 	
 	/**
 	 * Loads the StudentEditForm view
@@ -59,14 +56,14 @@ public class StudentEditController {
 		return modelAndView;
 	}
 	
-	@RequestMapping(value="/saveEditStudentRegistration", method=RequestMethod.POST)
-	public String editStudent(@ModelAttribute StudentRegistration studentRegistration,
-			ModelMap model) {
-		
-		if(studentRegistrationService.registerStudent(studentRegistration)) {
-			return "redirect:viewStudent"; // redirect to student details view
-		}
-		
-		return "studentDetails";
-	}
+//	@RequestMapping(value="/saveEditStudentRegistration", method=RequestMethod.POST)
+//	public String editStudent(@ModelAttribute StudentRegistration studentRegistration,
+//			ModelMap model) {
+//		
+//		if(studentRegistrationService.registerStudent(studentRegistration)) {
+//			return "redirect:viewStudent"; // redirect to student details view
+//		}
+//		
+//		return "studentDetails";
+//	}
 }
