@@ -11,7 +11,7 @@
 	
 	<h1>Form Registration</h1>
 	
-	<form:form commandName="registration" method="POST">
+	<form:form action="register" commandName="registration" method="POST">
 		Username: <form:input path="username"/>
 		<font color="red">
 			<form:errors path="username" />
@@ -24,10 +24,10 @@
 		</font>
 		<br />
 		
-		First Name: <form:input path="firstname"/>
+		First Name: <form:input path="firstName"/>
 		<br /> 
 		
-		Last Name: <form:input path="lastname"/>
+		Last Name: <form:input path="lastName"/>
 		<br />
 		
 		Gender: <form:radiobutton path="gender" value="Male"/> Male

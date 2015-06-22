@@ -42,10 +42,15 @@
 		<property name="paramName" value="language" />
 	</bean>
 	
-	<!-- properties source -->
+	<!-- properties source --> 
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basename" value="messages"/>
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+				<value>errors</value>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">

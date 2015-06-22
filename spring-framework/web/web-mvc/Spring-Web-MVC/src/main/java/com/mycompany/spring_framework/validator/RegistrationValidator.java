@@ -3,6 +3,7 @@
  */
 package com.mycompany.spring_framework.validator;
 
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -12,6 +13,7 @@ import com.mycompany.spring_framework.model.Registration;
  * @author colin
  *
  */
+@Component
 public class RegistrationValidator implements Validator{
 
 	@Override
@@ -25,10 +27,10 @@ public class RegistrationValidator implements Validator{
 		Registration registration = (Registration) object;
 		
 		if(registration.getUsername() == null || registration.getUsername().length() == 0) {
-			errors.rejectValue("username", "errors.empty.username");
+			errors.rejectValue("username", "error.empty.username");
 		}
-		else if(registration.getUsername() == null || registration.getUsername().length() == 0) {
-			errors.rejectValue("password", "errors.empty.password");
+		if(registration.getPassword() == null || registration.getPassword().length() == 0) {
+			errors.rejectValue("password", "error.empty.password");
 		}
 	}
 
