@@ -12,47 +12,102 @@
 	<h1>Form Registration</h1>
 	
 	<form:form action="register" commandName="registration" method="POST">
-		Username: <form:input path="username"/>
-		<font color="red">
-			<form:errors path="username" />
-		</font>
-		<br />
-		
-		Password: <form:password path="password"/>
-		<font color="red">
-			<form:errors path="password" />
-		</font>
-		<br />
-		
-		First Name: <form:input path="firstName"/>
-		<br /> 
-		
-		Last Name: <form:input path="lastName"/>
-		<br />
-		
-		Gender: <form:radiobutton path="gender" value="Male"/> Male
-				<form:radiobutton path="gender" value="Female"/> Female
-		<br />
-		
-		Country: 
-		<form:select path="country">
-			<form:option value="India">India</form:option>
-			<form:option value="USA">USA</form:option>
-			<form:option value="Australia">Australia</form:option>
-		</form:select>
-		<br />
-		
-		Address:
-		<form:textarea path="address"/>
-		<br />
-		
-		Select any:
-		<form:checkbox path="cb" value="checkbox1"/>
-		Checkbox1
-		<form:checkbox path="cb" value="checkbox2"/>
-		Checkbox2		
-		
-		<input type="submit" value="Register"/>
+		<table>
+			<tr>
+				<td>Username:</td>
+				<td>
+					<form:input path="username"/>
+				</td>
+				<td>
+					<font color="red">
+						<form:errors path="username" />
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td>
+					<form:password path="password"/>
+				</td>
+				<td>
+					<font color="red">
+						<form:errors path="password" />
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td>First Name:</td>
+				<td>
+					<form:input path="firstName"/>
+				</td>
+				<td>
+					<font color="red">
+						<form:errors path="firstName" />
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td>Last Name:</td>
+				<td>
+					<form:input path="lastName"/>
+				</td>
+				<td>
+					<font color="red">
+						<form:errors path="lastName" />
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td>Gender:</td>
+				<td>
+					<form:radiobutton path="gender" value="Male"/> Male
+					<br />
+					<form:radiobutton path="gender" value="Female"/> Female
+				</td>
+				<td>
+					<font color="red">
+						<form:errors path="gender" />
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td>Country:</td>
+				<td>
+					<form:select path="country">
+						<form:option value="UK">United Kingdom</form:option>
+						<form:option value="USA">USA</form:option>
+						<form:option value="Australia">Australia</form:option>
+						<form:option value="China">China</form:option>
+						<form:option value="France">France</form:option>
+					</form:select>
+				</td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td>
+					<form:textarea path="address"/>
+				</td>
+				<td>
+					<font color="red">
+						<form:errors path="address" />
+					</font>
+				</td>
+			</tr>
+			<tr>
+				<td>Select any:</td>
+				<td>
+					<form:checkbox path="cb" value="checkbox1"/>
+					Checkbox1
+					<br />
+					<form:checkbox path="cb" value="checkbox2"/>
+					Checkbox2
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Register"/></td>
+			</tr>
+		</table>
 		
 	</form:form>
 	

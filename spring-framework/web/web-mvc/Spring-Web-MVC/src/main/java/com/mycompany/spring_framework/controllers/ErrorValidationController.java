@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -34,12 +35,25 @@ public class ErrorValidationController {
 		return "errorValidation-registrationForm";
 	}
 	
+	/**
+	 * This method is to handle the submitted form
+	 * 
+	 * @param model
+	 * @param registration
+	 * @param result
+	 * @return
+	 */
 	@RequestMapping(value="/register", method=RequestMethod.POST)
-	public String submitRegistration(Model model, Registration registration, BindingResult result){
+	public String submitRegistration(Model model, @ModelAttribute Registration registration, 
+			BindingResult result){
 		
+		// execute the custom validation
 		registrationValidator.validate(registration, result);
 		
+		// then check whether it has errors or not
 		if(!result.hasErrors()) {
+			
+			// set the model to be display back to the view
 			model.addAttribute("username",registration.getUsername());
 			model.addAttribute("password", registration.getPassword());
 			model.addAttribute("lastname", registration.getLastName());
@@ -50,10 +64,9 @@ public class ErrorValidationController {
 			model.addAttribute("cb", registration.getCb());
 		}
 		else {
-			System.out.println("Has Errors");
+			// return the form back with errors being shown
 			return "errorValidation-registrationForm";
 		}
-		
 		
 		return "errorValidation-showSubmittedForm";
 	}

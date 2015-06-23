@@ -10,6 +10,8 @@ import org.springframework.validation.Validator;
 import com.mycompany.spring_framework.model.Registration;
 
 /**
+ * Custom Validator
+ * 
  * @author colin
  *
  */
@@ -29,8 +31,25 @@ public class RegistrationValidator implements Validator{
 		if(registration.getUsername() == null || registration.getUsername().length() == 0) {
 			errors.rejectValue("username", "error.empty.username");
 		}
+		
 		if(registration.getPassword() == null || registration.getPassword().length() == 0) {
 			errors.rejectValue("password", "error.empty.password");
+		}
+		
+		if(registration.getFirstName() == null || registration.getFirstName().length() == 0) {
+			errors.rejectValue("firstName", "error.empty.firstname");
+		}
+		
+		if(registration.getLastName() == null || registration.getLastName().length() == 0) {
+			errors.rejectValue("lastName", "error.empty.lastname");
+		}
+		
+		if(registration.getGender() == null || registration.getGender().length() == 0) {
+			errors.rejectValue("gender", "error.empty.gender");
+		}
+		
+		if(registration.getAddress() == null || registration.getAddress().length() == 0) {
+			errors.rejectValue("address", "error.empty.address");
 		}
 	}
 
