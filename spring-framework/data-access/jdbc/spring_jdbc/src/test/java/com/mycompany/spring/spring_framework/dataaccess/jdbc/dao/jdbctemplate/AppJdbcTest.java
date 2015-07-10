@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao;
+package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.jdbctemplate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -16,22 +16,20 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Customer;
  *
  */
 @Component
-public class AppTest {
-
+public class AppJdbcTest {
+	
 	@Autowired
-	private CustomerDao customerDao;
+	private CustomerDaoJdbc customerJdbcDao;
 	
 	public void test() {
-		Customer customer = customerDao.findById(1);
+		Customer customer = customerJdbcDao.findById(1);
 		System.out.println(customer);
-		
 	}
-
+	
 	public static void main(String[] args) {
-		
 		ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
-		AppTest appTest = context.getBean(AppTest.class);
-		appTest.test();
+		AppJdbcTest appJdbcTest = context.getBean(AppJdbcTest.class);
+		appJdbcTest.test();
 		((ConfigurableApplicationContext)context).close();
 	}
 }
