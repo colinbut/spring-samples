@@ -4,11 +4,13 @@
 package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.jdbctemplate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 
+import com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.CustomerDao;
 import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Customer;
 
 /**
@@ -19,7 +21,8 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Customer;
 public class AppJdbcTest {
 	
 	@Autowired
-	private CustomerDaoJdbc customerJdbcDao;
+	@Qualifier("customerDaoJdbcImpl")
+	private CustomerDao customerJdbcDao;
 	
 	public void test() {
 		Customer customer = customerJdbcDao.findById(1);

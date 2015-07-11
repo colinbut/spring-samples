@@ -19,7 +19,7 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Customer;
  * @author colin
  *
  */
-@Repository
+@Repository("customerDaoImpl")
 public class CustomerDaoImplTest implements CustomerDao {
 	
 	@Autowired

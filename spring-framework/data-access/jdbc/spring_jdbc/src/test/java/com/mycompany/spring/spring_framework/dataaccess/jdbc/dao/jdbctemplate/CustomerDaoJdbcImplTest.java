@@ -16,19 +16,23 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.AddressDao;
+import com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.CustomerDao;
 import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Customer;
 
 /**
  * @author colin
  *
  */
-@Repository
-public class CustomerDaoJdbcImplTest implements CustomerDaoJdbc {
+@Repository("customerDaoJdbcImpl")
+public class CustomerDaoJdbcImplTest implements CustomerDao {
 
 	@Autowired
 	private DataSource dataSource;
 	
 	private JdbcTemplate jdbcTemplate;
+	
+	@Autowired
+	private AddressDao addressDao;
 	
 	@PostConstruct
 	public void init() {
@@ -40,11 +44,11 @@ public class CustomerDaoJdbcImplTest implements CustomerDaoJdbc {
 		
 		String sql = "SELECT * FROM CUSTOMER WHERE customer_id = ?";
 		
-//		Customer customer = jdbcTemplate.queryForObject(sql, new Object[]{id}, 
-//				new CustomerRowMapper());
-		
 		Customer customer = jdbcTemplate.queryForObject(sql, new Object[]{id}, 
-				new BeanPropertyRowMapper<Customer>());
+				new CustomerRowMapper());
+		
+//		Customer customer = jdbcTemplate.queryForObject(sql, new Object[]{id}, 
+//				new BeanPropertyRowMapper<Customer>(Customer.class));
 		
 		return customer;
 	}
@@ -67,9 +71,6 @@ public class CustomerDaoJdbcImplTest implements CustomerDaoJdbc {
 	
 	private class CustomerRowMapper implements RowMapper<Customer> {
 
-		@Autowired
-		private AddressDao addressDao;
-		
 		@Override
 		public Customer mapRow(ResultSet rs, int rowNum) throws SQLException {
 			

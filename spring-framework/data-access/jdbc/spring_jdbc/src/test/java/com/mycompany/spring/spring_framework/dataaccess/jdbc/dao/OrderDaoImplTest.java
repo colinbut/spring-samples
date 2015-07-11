@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Order;
@@ -26,6 +27,7 @@ public class OrderDaoImplTest implements OrderDao {
 	private DataSource dataSource;
 	
 	@Autowired
+	@Qualifier("customerDaoImpl")
 	private CustomerDao customerDao;
 	
 	@Override
