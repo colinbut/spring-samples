@@ -20,4 +20,8 @@ public interface CustomerDao {
 	List<Customer> findAll();
 	
 	void insertCustomer(Customer customer);
+	
+	void insertBatch1(List<Customer> customers);
+	
+	void insertBatch2(String sql);
 }

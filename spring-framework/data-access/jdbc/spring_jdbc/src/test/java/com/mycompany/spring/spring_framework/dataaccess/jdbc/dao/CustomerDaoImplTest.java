@@ -186,6 +186,16 @@ public class CustomerDaoImplTest implements CustomerDao {
 		
 		return customerName;
 	}
+
+	@Override
+	public void insertBatch1(List<Customer> customers) {
+		throw new UnsupportedOperationException("UnsupportedOperation");
+	}
+
+	@Override
+	public void insertBatch2(String sql) {
+		throw new UnsupportedOperationException("UnsupportedOperation");
+	}
 	
 
 	
