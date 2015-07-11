@@ -5,6 +5,9 @@ package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.jdbctemplate;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
@@ -85,6 +88,36 @@ public class CustomerDaoJdbcImplTest implements CustomerDao {
 			return customer;
 		}
 		
+	}
+
+	@Override
+	public List<Customer> findAll() {
+		String sql = "SELECT * FROM CUSTOMER;";
+		
+		List<Customer> customers = new ArrayList<>();
+		
+		List<Map<String, Object>> rows = jdbcTemplate.queryForList(sql);
+		for(Map<String, Object> row : rows) {
+			Customer customer = new Customer();
+			customer.setCustomerId(Integer.parseInt(String.valueOf(row.get("customer_id"))));
+			customer.setFirstName(String.valueOf(row.get("customer_firstname")));
+			customer.setLastName(String.valueOf(row.get("customer_lastname")));
+			customers.add(customer);
+		}
+		
+		return customers;
+	}
+
+	@Override
+	public String findCustomerLastNameById(int id) {
+		
+		String sql = "SELECT customer_lastname FROM CUSTOMER WHERE customer_id = ?";
+		
+		String customerLastName = null;
+		
+		customerLastName = jdbcTemplate.queryForObject(sql, new Object[]{id}, String.class);
+		
+		return customerLastName;
 	}
 
 }

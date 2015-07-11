@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -104,6 +106,85 @@ public class CustomerDaoImplTest implements CustomerDao {
 		}
 		
 		
+	}
+
+	@Override
+	public List<Customer> findAll() {
+		
+		List<Customer> customers = new ArrayList<>();
+		String sql = "SELECT * FROM CUSTOMER;";
+		
+		Connection con = null;
+		Customer customer = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			PreparedStatement stmt = con.prepareStatement(sql);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			while(rs.next()) {
+				customer = new Customer();
+				customer.setCustomerId(rs.getInt("customer_id"));
+				customer.setFirstName(rs.getString("customer_firstname"));
+				customer.setLastName(rs.getString("customer_lastname"));
+				customer.setDateOfBirth(rs.getDate("customer_date_of_birth"));
+				customer.setEmail(rs.getString("customer_email_address"));
+				customer.setAddress(addressDao.findById(rs.getInt("customer_address_id")));
+				customers.add(customer);
+			}
+			
+			rs.close();
+			stmt.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(con != null) {
+				try {
+					con.close();
+				} catch(SQLException e) {}
+				
+			}
+		}
+		
+		return customers;
+	}
+
+	@Override
+	public String findCustomerLastNameById(int id) {
+		String sql = "SELECT customer_lastname FROM CUSTOMER WHERE customer_id = ?";
+		
+		Connection con = null;
+		String customerName = null;
+		
+		try {
+			con = dataSource.getConnection();
+			
+			PreparedStatement stmt = con.prepareStatement(sql);
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+			
+			if(rs.next()) {
+				customerName = rs.getString("customer_lastname");
+			}
+			
+			rs.close();
+			stmt.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(con != null) {
+				try {
+					con.close();
+				} catch(SQLException e) {}
+				
+			}
+		}
+		
+		return customerName;
 	}
 	
 
