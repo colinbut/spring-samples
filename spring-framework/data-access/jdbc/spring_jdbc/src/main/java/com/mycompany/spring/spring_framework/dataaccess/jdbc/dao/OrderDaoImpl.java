@@ -7,6 +7,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -14,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
+import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Item;
 import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Order;
 
 /**
@@ -29,6 +32,14 @@ public class OrderDaoImpl implements OrderDao {
 	@Autowired
 	@Qualifier("customerDaoImpl")
 	private CustomerDao customerDao;
+	
+	@Autowired
+	@Qualifier("ordersItemsMappingDaoImpl")
+	private OrdersItemsMappingDao ordersItemsMappingDao;
+	
+	@Autowired
+	@Qualifier("itemDaoImpl")
+	private ItemDao itemDao;
 	
 	@Override
 	public Order findById(int id) {
@@ -49,7 +60,13 @@ public class OrderDaoImpl implements OrderDao {
 				order.setOrderId(id);
 				order.setCustomer(customerDao.findById(rs.getInt("customer_id")));
 				
+				List<Integer> itemIds = ordersItemsMappingDao.getItemsIdByOrderId(id);
+				List<Item> items = new ArrayList<>();
+				for(Integer itemId : itemIds) {
+					items.add(itemDao.findById(itemId));
+				}
 				
+				order.setItems(items);
 				
 			}
 			
