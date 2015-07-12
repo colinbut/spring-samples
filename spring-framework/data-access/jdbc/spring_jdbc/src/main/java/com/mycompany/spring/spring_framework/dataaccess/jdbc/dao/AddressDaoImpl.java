@@ -19,7 +19,7 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Address;
  * @author colin
  *
  */
-@Repository
+@Repository("addressDaoImpl")
 public class AddressDaoImpl implements AddressDao {
 
 	@Autowired

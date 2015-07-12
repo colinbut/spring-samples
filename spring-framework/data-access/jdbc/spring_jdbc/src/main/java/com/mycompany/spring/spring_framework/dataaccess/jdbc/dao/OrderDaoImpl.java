@@ -20,7 +20,7 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Order;
  * @author colin
  *
  */
-@Repository
+@Repository("orderDaoImpl")
 public class OrderDaoImpl implements OrderDao {
 
 	@Autowired
@@ -48,6 +48,7 @@ public class OrderDaoImpl implements OrderDao {
 				order = new Order();
 				order.setOrderId(id);
 				order.setCustomer(customerDao.findById(rs.getInt("customer_id")));
+				
 				
 				
 			}

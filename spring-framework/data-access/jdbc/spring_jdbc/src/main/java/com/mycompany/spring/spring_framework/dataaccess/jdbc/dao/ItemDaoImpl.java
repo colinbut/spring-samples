@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Item;
 
@@ -18,6 +19,7 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Item;
  * @author colin
  *
  */
+@Repository("itemDaoImpl")
 public class ItemDaoImpl implements ItemDao {
 
 	@Autowired

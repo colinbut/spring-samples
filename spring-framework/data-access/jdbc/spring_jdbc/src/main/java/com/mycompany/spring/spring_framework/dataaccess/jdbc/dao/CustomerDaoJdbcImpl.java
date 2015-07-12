@@ -3,7 +3,7 @@
  */
 package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao;
 
-import java.sql.Date;
+//import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,8 +15,9 @@ import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
+//import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -36,6 +37,7 @@ public class CustomerDaoJdbcImpl implements CustomerDao {
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
+	@Qualifier("addressDaoJdbcImpl")
 	private AddressDao addressDao;
 	
 	@PostConstruct

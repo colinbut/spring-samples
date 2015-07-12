@@ -21,7 +21,7 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.CustomerPayme
  * @author colin
  *
  */
-@Repository
+@Repository("customerPaymentDetailDaoImpl")
 public class CustomerPaymentDetailDaoImpl implements CustomerPaymentDetailDao {
 
 	@Autowired
