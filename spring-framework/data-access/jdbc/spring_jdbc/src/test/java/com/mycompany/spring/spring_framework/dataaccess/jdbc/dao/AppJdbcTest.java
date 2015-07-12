@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.jdbctemplate;
+package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao;
 
 import java.util.ArrayList;
 import java.util.Date;

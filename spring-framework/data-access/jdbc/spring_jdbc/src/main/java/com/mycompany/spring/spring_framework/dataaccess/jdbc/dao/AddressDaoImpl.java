@@ -20,7 +20,7 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Address;
  *
  */
 @Repository
-public class AddressDaoImplTest implements AddressDao {
+public class AddressDaoImpl implements AddressDao {
 
 	@Autowired
 	private DataSource dataSource;

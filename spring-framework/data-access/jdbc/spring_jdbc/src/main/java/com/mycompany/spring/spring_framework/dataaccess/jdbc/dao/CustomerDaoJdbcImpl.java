@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.jdbctemplate;
+package com.mycompany.spring.spring_framework.dataaccess.jdbc.dao;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -21,8 +21,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.AddressDao;
-import com.mycompany.spring.spring_framework.dataaccess.jdbc.dao.CustomerDao;
 import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Customer;
 
 /**
@@ -30,7 +28,7 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Customer;
  *
  */
 @Repository("customerDaoJdbcImpl")
-public class CustomerDaoJdbcImplTest implements CustomerDao {
+public class CustomerDaoJdbcImpl implements CustomerDao {
 
 	@Autowired
 	private DataSource dataSource;

@@ -11,24 +11,31 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
-import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Item;
+import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Order;
 
 /**
  * @author colin
  *
  */
-public class ItemDaoImplTest implements ItemDao {
+@Repository
+public class OrderDaoImpl implements OrderDao {
 
 	@Autowired
 	private DataSource dataSource;
 	
+	@Autowired
+	@Qualifier("customerDaoImpl")
+	private CustomerDao customerDao;
+	
 	@Override
-	public Item findById(int id) {
-		String sql = "SELECT * FROM ITEMS WHERE item_id = ?";
+	public Order findById(int id) {
+		String sql = "SELECT * FROM Orders WHERE order_id = ?";
 		
 		Connection con = null;
-		Item item = null;
+		Order order = null;
 		
 		try {
 			con = dataSource.getConnection();
@@ -38,10 +45,11 @@ public class ItemDaoImplTest implements ItemDao {
 			ResultSet rs = stmt.executeQuery();
 			
 			if(rs.next()) {
-				item = new Item();
-				item.setItemId(id);
-				item.setItemName(rs.getString("item_name"));
-				item.setItemPrice(rs.getBigDecimal("item_price"));
+				order = new Order();
+				order.setOrderId(id);
+				order.setCustomer(customerDao.findById(rs.getInt("customer_id")));
+				
+				
 			}
 			
 			rs.close();
@@ -58,13 +66,13 @@ public class ItemDaoImplTest implements ItemDao {
 			}
 		}
 		
-		return item;
+		return order;
 	}
 
 	@Override
-	public void insertItem(Item item) {
-		String sql = "INSERT INTO ITEMS (item_name, item_price) "
-				+ "VALUES (?,?)";
+	public void insertOrder(Order order) {
+		String sql = "INSERT INTO Orders (customer_id) "
+				+ "VALUES (?)";
 		
 		Connection con = null;
 		
@@ -73,8 +81,7 @@ public class ItemDaoImplTest implements ItemDao {
 			
 			PreparedStatement stmt = con.prepareStatement(sql);
 			
-			stmt.setString(1, item.getItemName());
-			stmt.setBigDecimal(2, item.getItemPrice());
+			stmt.setInt(1, order.getCustomer().getCustomerId());
 			
 			stmt.executeUpdate();
 			stmt.close();

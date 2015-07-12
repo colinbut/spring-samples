@@ -22,7 +22,7 @@ import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Customer;
  *
  */
 @Repository("customerDaoImpl")
-public class CustomerDaoImplTest implements CustomerDao {
+public class CustomerDaoImpl implements CustomerDao {
 	
 	@Autowired
 	private DataSource dataSource;

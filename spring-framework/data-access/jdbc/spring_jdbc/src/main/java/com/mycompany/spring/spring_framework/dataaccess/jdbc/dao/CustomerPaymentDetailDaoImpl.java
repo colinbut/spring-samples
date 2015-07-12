@@ -14,14 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.Order;
+import com.mycompany.spring.spring_framework.dataaccess.jdbc.model.CustomerPaymentDetail;
+
 
 /**
  * @author colin
  *
  */
 @Repository
-public class OrderDaoImplTest implements OrderDao {
+public class CustomerPaymentDetailDaoImpl implements CustomerPaymentDetailDao {
 
 	@Autowired
 	private DataSource dataSource;
@@ -31,11 +32,11 @@ public class OrderDaoImplTest implements OrderDao {
 	private CustomerDao customerDao;
 	
 	@Override
-	public Order findById(int id) {
-		String sql = "SELECT * FROM Orders WHERE order_id = ?";
+	public CustomerPaymentDetail findById(int id) {
+		String sql = "SELECT * FROM CustomerPaymentDetails WHERE customer_payment_details_id = ?";
 		
 		Connection con = null;
-		Order order = null;
+		CustomerPaymentDetail customerPaymentDetail = null;
 		
 		try {
 			con = dataSource.getConnection();
@@ -45,11 +46,12 @@ public class OrderDaoImplTest implements OrderDao {
 			ResultSet rs = stmt.executeQuery();
 			
 			if(rs.next()) {
-				order = new Order();
-				order.setOrderId(id);
-				order.setCustomer(customerDao.findById(rs.getInt("customer_id")));
-				
-				
+				customerPaymentDetail = new CustomerPaymentDetail();
+				customerPaymentDetail.setPaymentDetailsId(id);
+				customerPaymentDetail.setCustomerReference(rs.getString("customer_reference"));
+				customerPaymentDetail.setCardNo(rs.getString("customer_card_number"));
+				customerPaymentDetail.setCardExpiryDate(rs.getString("customer_card_expiry_date"));
+				customerPaymentDetail.setCustomer(customerDao.findById(rs.getInt("customer_id")));
 			}
 			
 			rs.close();
@@ -66,13 +68,14 @@ public class OrderDaoImplTest implements OrderDao {
 			}
 		}
 		
-		return order;
+		return customerPaymentDetail;
 	}
 
 	@Override
-	public void insertOrder(Order order) {
-		String sql = "INSERT INTO Orders (customer_id) "
-				+ "VALUES (?)";
+	public void insertCustomerPaymentDetail(
+			CustomerPaymentDetail customerPaymentDetail) {
+		String sql = "INSERT INTO CustomerPaymentDetails (customer_reference, customer_card_number, customer_card_expiry_date, customer_id) "
+				+ "VALUES (?,?,?,?)";
 		
 		Connection con = null;
 		
@@ -81,7 +84,8 @@ public class OrderDaoImplTest implements OrderDao {
 			
 			PreparedStatement stmt = con.prepareStatement(sql);
 			
-			stmt.setInt(1, order.getCustomer().getCustomerId());
+			stmt.setString(1, customerPaymentDetail.getCustomerReference());
+			stmt.setInt(4, customerPaymentDetail.getCustomer().getCustomerId());
 			
 			stmt.executeUpdate();
 			stmt.close();
